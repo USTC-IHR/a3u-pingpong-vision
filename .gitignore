@@ -1,0 +1,9 @@
+data/raw/
+data/labels/
+logs/
+*.log
+*.bag
+*.mcap
+__pycache__/
+*.pyc
+.venv/
