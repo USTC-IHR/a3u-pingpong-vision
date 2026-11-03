@@ -1,0 +1,16 @@
+type: FisheyeV3
+model: 2
+color_intrinsics:
+  width: 1920
+  height: 1536
+  fx: 565.297607
+  fy: 565.445007
+  ppx: 960.447693
+  ppy: 768.275208
+  distortion_model: 2
+  coeffs:
+    - 0.0331710279
+    - -0.0154412705
+    - 0.000447787286
+    - 0.000143454294
+    - 0

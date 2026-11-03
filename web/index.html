@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A3U 单目球台定位测试</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111923;color:#e0e8ef;font:15px system-ui,sans-serif}header{padding:12px 20px;border-bottom:1px solid #405060}h1{font-size:19px;margin:0 0 8px}button{padding:8px;margin:4px;background:#234764;color:white;border:1px solid #63809a;border-radius:4px;cursor:pointer}button:disabled{opacity:.4;cursor:default}main{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}.panel{min-width:0;background:#1a2633;padding:12px;border-radius:6px}#photo{width:100%;height:auto;cursor:crosshair;display:block}#scene{height:520px;position:relative}#scene canvas{display:block}#message{color:#ffbd69;white-space:pre-line}pre{white-space:pre-wrap;font-size:13px}#measure{font-size:16px;line-height:1.7}small{color:#a9bdcd}.bad{color:#ffac77}.good{color:#8ae1b1}#modelStatus{position:absolute;bottom:5px;background:#111b;z-index:1;font-size:12px}#state{white-space:pre-line}@media(max-width:950px){main{grid-template-columns:1fr}#scene{height:420px}}
+</style><script type="importmap">{"imports":{"three":"/vendor/three.module.js"}}</script></head>
+<body><header><h1>A3U 面部单相机 · 球台距离与相对位置测试</h1><div id="state">等待相机</div></header>
+<main><section class="panel">
+<div><button id="freeze">冻结当前帧 / 开始点选</button><button id="resume">恢复实时</button><button id="clear">清除点选</button><button id="solve" disabled>解算四角</button><button id="save">保存当前原图</button></div>
+<p>按顺序点选：<b>①近左 → ②近右 → ③远右 → ④远左</b>。这里“近”是机器人所在半台；点台面外边界的四个角，不点球网。</p>
+<canvas id="photo"></canvas><p id="message"></p><small>点选自动冻结图像；冻结结果不代表实时追踪。原图不缩放解算，浏览器显示缩放会自动换算像素。</small>
+</section><section class="panel"><div id="scene"><span id="modelStatus">载入本地机器人网格…</span></div>
+<p><button id="top">俯视</button><button id="side">侧视</button><button id="iso">斜视</button></p>
+<div id="measure">尚无定位结果</div><pre id="details"></pre>
+<small>球台中心为原点，+x 朝对手，+y 朝机器人左侧，+z 向上；地面 z=-0.76 m 是标称几何。橙色机器人用于显示：其余非 FK 链关节为零位参考，不是全身实测姿态。拖动旋转，滚轮缩放。</small></section></main>
+<script type="module" src="/app.js"></script></body></html>

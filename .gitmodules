@@ -1,0 +1,3 @@
+[submodule "assets/robot_model"]
+	path = assets/robot_model
+	url = git@github.com:USTC-IHR/A3-A3U-robot-model.git

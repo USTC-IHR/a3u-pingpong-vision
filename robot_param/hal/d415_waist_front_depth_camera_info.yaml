@@ -1,0 +1,45 @@
+type: RealsenseV3
+model: 1
+depth_intrinsics:
+  width: 1280
+  height: 720
+  fx: 899.989441
+  fy: 899.989441
+  ppx: 652.10083
+  ppy: 362.589783
+  distortion_model: 4
+  coeffs:
+    - 0
+    - 0
+    - -0
+    - -0
+    - 0
+color_intrinsics:
+  width: 1280
+  height: 720
+  fx: 909.110413
+  fy: 907.231567
+  ppx: 660.991943
+  ppy: 368.949341
+  distortion_model: 2
+  coeffs:
+    - 0
+    - 0
+    - -0
+    - -0
+    - 0
+depth_to_color:
+  rotation:
+    - 0.999994516
+    - 0.000991551788
+    - 0.00315031735
+    - -0.000981396646
+    - 0.999994338
+    - -0.0032234299
+    - -0.00315349572
+    - 0.00322032045
+    - 0.999989867
+  translation:
+    - -14.0580959
+    - -1.05560076
+    - 0.0556540638

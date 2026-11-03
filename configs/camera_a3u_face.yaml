@@ -1,0 +1,47 @@
+# One physical lens only. Never reuse another lens/resolution's intrinsics.
+camera_id: face_left
+image_size: null                 # [width, height] from offline calibration
+camera_matrix: null              # 3x3, pixels
+distortion_coefficients: null     # plumb_bob/rational OpenCV coefficients
+distortion_model: plumb_bob
+calibrated: false
+calibration_source: null          # checkerboard/ChArUco, not mocap
+
+# CAD mount: x forward, y left, z up. Optical: x right, y down, z forward.
+# Maps optical vectors INTO mount coordinates. Verify on the selected lens.
+T_mount_optical:
+  - [0, 0, 1, 0]
+  - [-1, 0, 0, 0]
+  - [0, -1, 0, 0]
+  - [0, 0, 0, 1]
+optical_extrinsic_verified: false
+# null = unknown individual lens offset, not a measured zero baseline.
+# Fill optical origin in CAD mount axes [forward, left, up], in metres.
+lens_translation_mount_m: null
+# Right-multiplied CAD residual: T_pelvis_mount @ delta @ T_mount_optical.
+delta_mount_xyz_m: [0, 0, 0]
+delta_mount_rpy_rad: [0, 0, 0]
+
+table:
+  length_m: 2.74
+  width_m: 1.525
+  height_m: 0.76
+  net_height_m: 0.1525
+
+quality:
+  max_reprojection_px: 4.0
+  min_area_px: 400
+  max_distance_m: 15
+  ambiguity_px: 0.2
+
+# Optional automatic tracking: one flat ArUco glued to the tabletop.
+# Defaults are EXAMPLES, disabled. Measure its centre and printed black square.
+marker:
+  enabled: false
+  dictionary: DICT_4X4_50
+  id: 7
+  size_m: 0.16
+  center_table_m: [-1.0, 0, 0]
+  # Marker top points towards table +x. Clockwise image corners are
+  # defined in geometry.marker_points; see the runbook before placing it.
+  yaw_rad: 0
